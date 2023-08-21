@@ -5,11 +5,13 @@ const connectDB = require('./server/db/connect');
 require('dotenv').config();
 const notFound = require('./server/middleware/not-found');
 const errorHandlerMiddleware = require('./server/middleware/error-handler');
+const cors = require('cors');
 
 // middleware
 
 app.use(express.static('./public'));
 app.use(express.json());
+app.use(cors({origin: 'http://localhost:8080/'}));
 
 // routes
 
